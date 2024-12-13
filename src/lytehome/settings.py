@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*73t-ek8^++dy-_4+4*(=l+#83pi4enzc!^7f$qsi)hx8s%0po'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DEBUG", cast=bool, default=False)
 
 ALLOWED_HOSTS = []
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_celery_beat',
     'django_celery_results',
+    'movies',
 ]
 
 MIDDLEWARE = [
@@ -132,4 +133,4 @@ CELERY_RESULT_BACKEND = "django-db"
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 
 # allowing schedule items via django-admin
-CELERY_BEAT_SCHEDULER = "django-celery-beat.schedulers.DatabaseScheduler"
+CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers.DatabaseScheduler"
