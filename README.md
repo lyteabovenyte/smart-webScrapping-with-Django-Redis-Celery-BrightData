@@ -1,0 +1,1 @@
+### building **SMART** Web Scraping platform using Django to avoid bot capcha and run it on interval using Celery
